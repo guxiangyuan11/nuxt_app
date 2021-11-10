@@ -15,7 +15,7 @@ if (NODE_ENV === 'production') {
 module.exports = {
   mode: 'universal',
   env: {
-    DGG_SERVER_ENV: process.env.DGG_SERVER_ENV,
+    SERVER_ENV: process.env.SERVER_ENV,
   },
   server: {
     port: 3001, // default: 3001
@@ -60,38 +60,6 @@ module.exports = {
         type: 'text/javascript',
         charset: 'utf-8',
       },
-      {
-        src: '/js/dgg-md-sdk-conf.js',
-        ssr: false,
-        type: 'text/javascript',
-        charset: 'utf-8',
-      },
-      {
-        src: 'https://ptcdn.dgg.cn/md/dgg-md-sdk.min.js',
-        ssr: false,
-        type: 'text/javascript',
-        charset: 'utf-8',
-      },
-      {
-        src: 'https://res.wx.qq.com/open/js/jweixin-1.4.0.js',
-        ssr: false,
-        type: 'text/javascript',
-        charset: 'utf-8',
-      },
-      {
-        src:
-          'https://b.bdstatic.com/searchbox/icms/searchbox/js/swan-2.0.18.js',
-        ssr: false,
-        type: 'text/javascript',
-        charset: 'utf-8',
-      },
-      {
-        src:
-          'https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.1.js',
-        ssr: false,
-        type: 'text/javascript',
-        charset: 'utf-8',
-      },
     ],
   },
   loading: { color: '#fff' },
@@ -99,7 +67,6 @@ module.exports = {
   plugins: [
     { src: '@/plugins/axios', ssr: true },
     { src: '@/plugins/router', ssr: false },
-    { src: '@/plugins/dgg-md', ssr: false },
   ],
   buildModules: ['@nuxtjs/eslint-module'],
   modules: ['@nuxtjs/axios', '@nuxtjs/style-resources'],

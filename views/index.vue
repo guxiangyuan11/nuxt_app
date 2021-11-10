@@ -3,45 +3,20 @@
     <div>
       <logo />
       <h1 class="title">
-        dgg-platform-nuxt-wap
+        nuxt-wap
       </h1>
       <h2 class="subtitle">
         My badass Nuxt.js project
       </h2>
-      <!-- 自定义事件 -->
-      <div v-md:p_search data-keyword="测试搜索" class="test">
-        <span>自定义事件</span>
-      </div>
-      <!-- 热力图点击事件 -->
-      <div v-md-map class="test">
-        <span>热力图点击事件</span>
-      </div>
-      <!-- 自定义事件 和 热力图点击事件 -->
-      <div v-md:p_search v-md-map data-keyword="测试搜索" class="test">
-        <span>自定义事件 和 热力图点击事件</span>
-      </div>
-      <md-button type="primary" round>Primary & Round</md-button>
     </div>
   </div>
 </template>
 
 <script>
-import { Button } from 'mand-mobile'
 import Logo from '~/components/Logo.vue'
 
 export default {
-  components: {
-    [Button.name]: Button,
-    Logo,
-  },
-  mounted() {
-    console.log(process.env.DGG_SERVER_ENV)
-  },
-  methods: {
-    track(event) {
-      dggSensors.quick('trackHeatMap', event.target)
-    },
-  },
+  components: { Logo, },
 }
 </script>
 
