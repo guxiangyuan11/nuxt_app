@@ -1,11 +1,22 @@
 const NODE_ENV = process.env.NODE_ENV
 const bablePlugin = [
+  // [
+  //   'import',
+  //   {
+  //     libraryName: 'vant',
+  //     libraryDirectory: 'es',
+  //     style: true,
+  //   },
+  //   'vant',
+  // ],
   [
     'import',
     {
-      libraryName: 'mand-mobile',
-      libraryDirectory: 'components',
+      libraryName: 'vant',
+      // libraryDirectory: 'es',
+      style: (name) => `${name}/style/less`,
     },
+    'vant',
   ],
 ]
 if (NODE_ENV === 'production') {
@@ -63,25 +74,24 @@ module.exports = {
     ],
   },
   loading: { color: '#fff' },
-  css: [],
+  css: ['vant/lib/index.css'],
   plugins: [
     { src: '@/plugins/axios', ssr: true },
     { src: '@/plugins/router', ssr: false },
   ],
   buildModules: ['@nuxtjs/eslint-module'],
-  modules: ['@nuxtjs/axios', '@nuxtjs/style-resources'],
-  styleResources: {
-    stylus: ['@/assets/theme.custom.styl'],
-  },
+  modules: ['@nuxtjs/axios', '@nuxtjs/proxy'],
+  styleResources: {},
   axios: { proxy: true },
   build: {
-    transpile: [/mand-mobile/],
+    transpile: [/vant.*?less/],
     postcss: {
       plugins: {
         'postcss-pxtorem': {
           rootValue: 100,
           minPixelValue: 2,
           propWhiteList: [],
+          exclude: /(node_modules)/,
         },
       },
       preset: {

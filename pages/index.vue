@@ -2,26 +2,26 @@
   <div class="container">
     <div>
       <logo />
-      <h1 class="title">
-        nuxt-wap
-      </h1>
-      <h2 class="subtitle">
-        My badass Nuxt.js project
-      </h2>
+      <h1 class="title">nuxt-wap</h1>
+      <h2 class="subtitle">My badass Nuxt.js project</h2>
+      <Button type="primary">click me</Button>
     </div>
+    <br />
   </div>
 </template>
-
 <script>
+import { Button } from 'vant'
 import Logo from '~/components/Logo.vue'
 
 export default {
-  components: { Logo, },
+  components: { Logo, Button },
+  mounted() {
+    console.log(this.$store.state.user.name)
+  },
 }
 </script>
 
-<style lang="stylus" scoped>
-
+<style scoped>
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -43,8 +43,8 @@ export default {
 
 .subtitle {
   font-weight: 300;
-  font-size: 42px;
-  color: color-primary;
+  font-size: 84px;
+  color: red;
   word-spacing: 5px;
   padding-bottom: 15px;
   transform: scale(0.5);
@@ -54,8 +54,8 @@ export default {
   padding-top: 15px;
 }
 
-.test{
-  font-size : 32px;
-  margin-bottom : 32px;
+.test {
+  font-size: 32px;
+  margin-bottom: 32px;
 }
 </style>
